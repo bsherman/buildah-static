@@ -1,7 +1,7 @@
 #syntax=docker/dockerfile:1.24.0
 
 # renovate: datasource=github-releases depName=containers/buildah
-ARG BUILDAH_VERSION=1.42.1
+ARG BUILDAH_VERSION=1.43.1
 
 #--
 
