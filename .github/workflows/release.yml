@@ -29,13 +29,13 @@ jobs:
           - arm64
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7.0.1
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
+        uses: docker/setup-qemu-action@v4.2.0
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
+        uses: docker/setup-buildx-action@v4.3.0
 
       - name: Build
         env:
@@ -48,7 +48,7 @@ jobs:
           gzip buildah-${{ matrix.arch }}.tar
 
       - name: Store tarball
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: buildah-${{ matrix.arch }}.tar.gz
           path: buildah-${{ matrix.arch }}.tar.gz
@@ -60,9 +60,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7.0.1
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@v8.0.1
 
       - name: Get version
         id: get_version
@@ -72,7 +72,7 @@ jobs:
 
       - name: Create release
         id: create_release
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1.21.0
         with:
           name: "buildah ${{ steps.get_version.outputs.version }}"
           tag: v${{ steps.get_version.outputs.version }}
