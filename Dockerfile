@@ -5,7 +5,7 @@ ARG BUILDAH_VERSION=1.45.0
 
 #--
 
-FROM debian:testing AS build-base
+FROM debian:testing@sha256:dab11cdb0a9dcf4bbd68f671635b35f1f726b452b92396875b69bb2c7daa42a9 AS build-base
 
 SHELL ["bash", "-euxo", "pipefail", "-c"]
 
